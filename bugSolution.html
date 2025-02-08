@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This is some text.
+  </div>
+  <div id="anotherDiv"></div> 
+  <script>
+    // Correctly using innerHTML to append after checking for existing element
+    const myDiv = document.getElementById('myDiv');
+    if (myDiv) {
+      myDiv.innerHTML += "<p>This is a paragraph.</p>";
+      myDiv.innerHTML += "<p>This is another paragraph.</p>";
+    }
+
+    const anotherDiv = document.getElementById('anotherDiv');
+    if(anotherDiv){
+        anotherDiv.innerHTML = "<p>This will not throw an error!</p>";
+    } else {
+        console.log("Element does not exist!");
+    }
+  </script>
+</body>
+</html>
